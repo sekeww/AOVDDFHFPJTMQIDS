@@ -16,6 +16,7 @@ import java.util.List;
 public class SonsListViewAdapter extends BaseAdapter {
 
     private List<Sons> sons;
+
     private Context context;
     private LayoutInflater inflater;
 

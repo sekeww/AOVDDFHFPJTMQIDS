@@ -12,8 +12,8 @@ public class SonsAdapter extends FragmentStatePagerAdapter {
 
    // private ArrayList<Fragment> fragments;
     private String toFindText="";
-    protected static final String[] CONTENT = new String[] { "А", "Ә", "Б", "В", "Д", "Е", "Ж","З", "И",
-            "К", "Қ", "Л", "М", "Н", "О", "Ө", "П", "Р", "С", "Т", "У", "Ұ", "Ү", "Ф", "Х", "Ш", "І" };
+    protected static final String[] CONTENT = new String[] { "А", "Ә", "Б", "В", "Г", "Ғ", "Д", "Е", "Ж","З", "И",
+            "К", "Қ", "Л", "М", "Н", "О", "Ө", "П", "Р", "С", "Т", "У", "Ұ", "Ү", "Ф", "Х", "Ц", "Ш", "Ы", "І", "Э", "Я"};
 
 
     public SonsAdapter(FragmentManager fm) {

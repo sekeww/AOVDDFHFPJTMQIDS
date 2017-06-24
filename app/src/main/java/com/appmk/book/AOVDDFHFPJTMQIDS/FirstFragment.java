@@ -91,8 +91,7 @@ public class FirstFragment extends Fragment {
 
             @Override
             public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                if (i%100==0 && i!=0 && z==0) {
-                    z=1;
+                if (i%100==0 && i!=0) {
                     if (MainActivity.interstitial.isLoaded()) {
                         MainActivity.interstitial.show();
                     }
