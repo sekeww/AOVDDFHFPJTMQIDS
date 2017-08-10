@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SearchView searchView;
     private MenuItem searchMenuItem;
 
-    public static InterstitialAd interstitial;
+    private InterstitialAd interstitial;
     private int k = 0;
 
     @Override
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 //        });
         Backendless.initApp(this, Konst.APP_ID,Konst.ANDROID_KEY,"v1");
         MobileAds.initialize(getApplicationContext(),getResources().getString(R.string.ads_app_id));
+
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         final AdRequest adRequest = new AdRequest.Builder().addTestDevice("27B1B3B72C8B485FEA61CFA654562346").build();
@@ -105,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             @Override
             public void onPageSelected(int position) {
                 //QUERY_TEXT = CONTENT[mViewPager.getCurrentItem()];
+//                if (interstitial.isLoaded()) {
+//                    interstitial.show();
+//                }
             }
 
             @Override
@@ -117,6 +121,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         SonsAdapter adapter = new SonsAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapter);
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (interstitial.isLoaded()) {
+                    interstitial.show();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         tabs.setViewPager(mViewPager);
     }
 

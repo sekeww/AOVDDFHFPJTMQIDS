@@ -43,6 +43,7 @@ public class FirstFragment extends Fragment {
     private List<Sons> mSons = new ArrayList<>();
     private Context context;
     private SonsListViewAdapter mAdapter;
+    private TinyDB tinydb;
 
     private int z=0;
     private ProgressDialog pd;
@@ -73,6 +74,8 @@ public class FirstFragment extends Fragment {
         context = inflater.getContext();
         View view = inflater.inflate(R.layout.fragment_first, container, false);
 
+        tinydb = new TinyDB(context);
+
         listView = (ListView) view.findViewById(R.id.listView);
         linLayout = (LinearLayout)view.findViewById(R.id.linLayout);
 
@@ -81,21 +84,6 @@ public class FirstFragment extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 hideKeyboard(v);
                 return false;
-            }
-        });
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                if (i%100==0 && i!=0) {
-                    if (MainActivity.interstitial.isLoaded()) {
-                        MainActivity.interstitial.show();
-                    }
-                }
             }
         });
 
